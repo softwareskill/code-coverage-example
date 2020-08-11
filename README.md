@@ -2,8 +2,8 @@
 
 Code Coverage and Mutation Coverage example
 
-![Java CI with Maven](https://github.com/softwareskill/code-coverage-exaple/workflows/Java%20CI%20with%20Maven/badge.svg)
-[![codecov](https://codecov.io/gh/softwareskill/code-coverage-exaple/branch/master/graph/badge.svg)](https://codecov.io/gh/softwareskill/code-coverage-exaple)
+![Java CI with Maven](https://github.com/softwareskill/code-coverage-example/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![codecov](https://codecov.io/gh/softwareskill/code-coverage-exaple/branch/master/graph/badge.svg)](https://codecov.io/gh/softwareskill/code-coverage-example)
 
 Project demonstrates:
 * **Code Coverage** - with [JaCoCo](https://www.eclemma.org/jacoco/)
