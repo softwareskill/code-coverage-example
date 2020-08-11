@@ -1,4 +1,4 @@
-# code-coverage-exaple
+# code-coverage-example
 
 Code Coverage and Mutation Coverage example
 
