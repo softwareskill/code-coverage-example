@@ -14,25 +14,25 @@ class FreeShippingTest {
 
     @Test
     void freeShippingForPremiumRegardlessDistance() {
-        assertThat(freeShipping.isEligible(FAR_DISTANCE, true))
+        assertThat(freeShipping.isEligible(FAR_DISTANCE, UserType.Premium))
                 .isTrue();
     }
 
     @Test
     void paidShippingAboveTreshold() {
-        assertThat(freeShipping.isEligible(FAR_DISTANCE, false))
+        assertThat(freeShipping.isEligible(FAR_DISTANCE, UserType.Regular))
                 .isFalse();
     }
 
 //    @Test
 //    void freeShippingBelowTreshold() {
-//        assertThat(freeShipping.isEligible(NEAR_DISTANCE, false))
+//        assertThat(freeShipping.isEligible(NEAR_DISTANCE, UserType.Regular))
 //                .isTrue();
 //    }
 //
 //    @Test
 //    void freeShippingBelowTresholdForPremium() {
-//        assertThat(freeShipping.isEligible(NEAR_DISTANCE, true))
+//        assertThat(freeShipping.isEligible(NEAR_DISTANCE, UserType.Premium))
 //                .isTrue();
 //    }
 }

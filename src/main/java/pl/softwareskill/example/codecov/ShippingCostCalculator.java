@@ -2,6 +2,8 @@ package pl.softwareskill.example.codecov;
 
 import lombok.RequiredArgsConstructor;
 
+import static pl.softwareskill.example.codecov.UserType.Premium;
+
 @RequiredArgsConstructor
 public class ShippingCostCalculator {
 
@@ -12,20 +14,20 @@ public class ShippingCostCalculator {
     private final double fixedCost;
     private final double costPerKm;
 
-    public double calculate(final long distance, final boolean userPremium) {
-        if (userPremium || distance <= freeDeliveryMaxDistance) {
+    public double calculate(final long distanceInMeters, final UserType userType) {
+        if (userType == Premium || distanceInMeters <= freeDeliveryMaxDistance) {
             return 0;
         }
 
-        if (distance <= fixedCostDistance) {
+        if (distanceInMeters <= fixedCostDistance) {
             return fixedCost;
         }
 
-        return fixedCost + additionalCostPerKm(distance);
+        return fixedCost + additionalCostPerKm(distanceInMeters);
     }
 
-    private double additionalCostPerKm(long distance) {
-        long additionalDistanceInKm = (distance - fixedCostDistance) / METERS_IN_KILOMETER;
+    private double additionalCostPerKm(long distanceInMeters) {
+        long additionalDistanceInKm = (distanceInMeters - fixedCostDistance) / METERS_IN_KILOMETER;
         return additionalDistanceInKm * costPerKm;
     }
 }

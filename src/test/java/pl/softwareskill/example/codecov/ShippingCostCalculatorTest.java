@@ -17,14 +17,14 @@ class ShippingCostCalculatorTest {
 
     @Test
     void freeShippingForPremiumRegardlessDistance() {
-        assertThat(shippingCostCalculator.calculate(FAR_DISTANCE, true))
+        assertThat(shippingCostCalculator.calculate(FAR_DISTANCE, UserType.Premium))
                 .isZero();
     }
 
     // ...
 //    @Test
 //    void freeShippingBelowFreeDeliveryDistance() {
-//        assertThat(shippingCostCalculator.calculate(FREE_MAX_DISTANCE, false))
+//        assertThat(shippingCostCalculator.calculate(FREE_MAX_DISTANCE, UserType.Regular))
 //                .isZero();
 //    }
     // ...
@@ -32,7 +32,7 @@ class ShippingCostCalculatorTest {
     @Test
     void belowFixedCostDistance() {
         long belowFixedCostDistance = FIXED_COST_DISTANCE - 10_000;
-        assertThat(shippingCostCalculator.calculate(belowFixedCostDistance, false))
+        assertThat(shippingCostCalculator.calculate(belowFixedCostDistance, UserType.Regular))
                 .isEqualTo(COST_FIXED);
     }
 
@@ -41,7 +41,7 @@ class ShippingCostCalculatorTest {
 //    @Test
 //    void atFixedCostDistance() {
 //        long atFixedCostDistance = FIXED_COST_DISTANCE;
-//        assertThat(shippingCostCalculator.calculate(atFixedCostDistance, false))
+//        assertThat(shippingCostCalculator.calculate(atFixedCostDistance, UserType.Regular))
 //                .isEqualTo(COST_FIXED);
 //    }
     // ...
@@ -51,7 +51,7 @@ class ShippingCostCalculatorTest {
         long breachedDistanceKm = 10;
         long breachedDistance = breachedDistanceKm * 1_000;
         long distance = FIXED_COST_DISTANCE + breachedDistance;
-        assertThat(shippingCostCalculator.calculate(distance, false))
+        assertThat(shippingCostCalculator.calculate(distance, UserType.Regular))
                 .isEqualTo(COST_FIXED + (COST_PER_KM * breachedDistanceKm));
     }
 }
